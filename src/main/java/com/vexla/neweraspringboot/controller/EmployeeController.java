@@ -13,10 +13,9 @@ import java.util.List;
 @RequestMapping("/v1/employees")
 public class EmployeeController {
 
-    private final EmployeeService employeeService;
-    public EmployeeController(@Qualifier("employeeServiceImpl") EmployeeService employeeService) {
-        this.employeeService = employeeService;
-    }
+    @Qualifier("employeeServiceImpl")
+    @Autowired
+    private  EmployeeService employeeService;
 
     @GetMapping
     public List<Employee> getEmployees() {
